@@ -1,0 +1,15 @@
+<h1>Ultimos Episódios Lançados</h1>
+<div class="" *ngIf="latestAnimes$ | async; else loading">
+    <div class="d-flex flex-wrap justify-content-start align-items-stretch">
+        <div *ngFor="let episode of latestAnimes$ | async">
+
+            <app-anime-card [title]="episode.title" [image]="'https://cdn.appanimeplus.tk/img/'+episode.category_image">
+            </app-anime-card>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #loading>
+    <h2>Carregando...</h2>
+</ng-template>

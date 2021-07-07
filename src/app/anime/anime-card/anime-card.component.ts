@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-anime-card',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./anime-card.component.scss']
 })
 export class AnimeCardComponent implements OnInit {
-
-  constructor() { }
+  @Input() image: string = ""
+  @Input() title: string = ""
+  constructor() { 
+  }
 
   ngOnInit(): void {
+    
   }
 
 }
