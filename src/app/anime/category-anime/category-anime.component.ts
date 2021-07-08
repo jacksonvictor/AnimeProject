@@ -1,6 +1,6 @@
 import { AnimeService } from './../anime.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { EMPTY, Observable, Subscription } from 'rxjs';
 import { Anime } from 'src/app/model/Anime';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -15,6 +15,7 @@ export class CategoryAnimeComponent implements OnInit {
   inscricao: Subscription
   category: string
   animeSearch: string
+  animeFound: boolean = false
 
   constructor(
     private animeService: AnimeService,
@@ -28,7 +29,6 @@ export class CategoryAnimeComponent implements OnInit {
         if(this.category){
           this.getAnimePerCategory(this.category)
         }else if(this.animeSearch){
-          console.log("entrou "+this.animeSearch)
           this.searchAnime(this.animeSearch)
         }
         
@@ -42,6 +42,11 @@ export class CategoryAnimeComponent implements OnInit {
 
   searchAnime(anime:string){
     this.animeSearch$ = this.animeService.searchAnime(anime)
+    console.log(this.animeSearch$)
+    console.log(EMPTY)
+    if(this.animeSearch$){
+      this.animeFound = true
+    }
   }
 
   getAnimePerCategory(category:string){

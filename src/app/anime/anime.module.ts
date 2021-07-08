@@ -14,9 +14,6 @@ import { CategoryAnimeComponent } from './category-anime/category-anime.componen
   imports: [
     CommonModule
   ],
-  exports:[
-    AnimeCardComponent,
-    LatestAnimeComponent
-  ]
+  exports:[]
 })
 export class AnimeModule { }

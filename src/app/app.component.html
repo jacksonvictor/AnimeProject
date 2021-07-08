@@ -17,7 +17,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <div *ngFor="let category of categories">
-                            <li><a class="dropdown-item" href="#" routerLink="/lista" [queryParams]="{categoria: category}">{{category}}</a></li>
+                            <li><a class="dropdown-item" href="#" routerLink="/lista" [queryParams]="{categoria: category}">{{category | titlecase }}</a></li>
                         </div>
 
                     </ul>

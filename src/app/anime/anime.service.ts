@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { take, tap } from 'rxjs/operators';
 import { Anime } from '../model/Anime';
 
+
 @Injectable({
   providedIn: 'root'
 })
