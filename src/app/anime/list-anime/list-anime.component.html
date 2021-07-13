@@ -1,0 +1,37 @@
+<div *ngIf="category">
+    <div class="d-flex flex-column justify-content-center align-items-center"
+        *ngIf="animePerCategory$ | async; else loading">
+        <h1>Categoria: {{category | titlecase }}</h1>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div *ngFor="let anime of animePerCategory$ | async">
+                <app-anime-card [title]="anime.category_name"
+                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image"
+                    (favoriteOnOff)="favoriteOnOff($event)"></app-anime-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="animeSearch">
+
+    <div class="d-flex flex-column justify-content-center align-items-center"
+        *ngIf="animeSearch$ | async; else naoEncontrado">
+        <h1>Resultado da Busca: {{animeSearch}}</h1>
+        <div class="d-flex flex-wrap justify-content-center">
+            <div *ngFor="let anime of animeSearch$ | async">
+                <app-anime-card [title]="anime.category_name"
+                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image" [favorite]="anime.favorite" (favoriteOnOff)="favoriteOnOff($event)">
+                </app-anime-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #naoEncontrado>
+    <h2>Anime Não Encontrado.</h2>
+</ng-template>
+
+<ng-template #loading>
+    <h2>Carregando...</h2>
+</ng-template>

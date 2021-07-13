@@ -5,11 +5,11 @@ import { Anime } from 'src/app/model/Anime';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-category-anime',
-  templateUrl: './category-anime.component.html',
-  styleUrls: ['./category-anime.component.scss']
+  selector: 'app-list-anime',
+  templateUrl: './list-anime.component.html',
+  styleUrls: ['./list-anime.component.scss']
 })
-export class CategoryAnimeComponent implements OnInit {
+export class ListAnimeComponent implements OnInit {
   animePerCategory$: Observable<Anime[]>
   animeSearch$: Observable<Anime[]>
   inscricao: Subscription
@@ -42,8 +42,6 @@ export class CategoryAnimeComponent implements OnInit {
 
   searchAnime(anime:string){
     this.animeSearch$ = this.animeService.searchAnime(anime)
-    console.log(this.animeSearch$)
-    console.log(EMPTY)
     if(this.animeSearch$){
       this.animeFound = true
     }
@@ -51,6 +49,20 @@ export class CategoryAnimeComponent implements OnInit {
 
   getAnimePerCategory(category:string){
     this.animePerCategory$ = this.animeService.getAnimeByCategory(category)
+  }
+
+  favoriteOnOff(value: any){
+    console.log(value)
+    if(this.animeSearch$){
+      this.animeSearch$.forEach(array =>{
+        array.forEach(anime =>{
+          if(anime.category_name === value.title){
+            anime.favorite = value.action
+          }
+        })
+      })
+    }
+    
   }
 
 }

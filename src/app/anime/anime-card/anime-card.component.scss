@@ -1,3 +1,8 @@
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+@import "../../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+
 
 .card{
     width: 10rem;
@@ -11,3 +16,13 @@
 .card-body{
     height: 7rem;
 }
+
+.card-text{
+    
+    font-size: 0.9em;
+}
+
+span{
+    display: inline;
+}
+

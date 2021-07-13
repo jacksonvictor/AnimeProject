@@ -1,3 +1,4 @@
+import { AuthService } from './login/auth.service';
 import { tap } from 'rxjs/operators';
 import { AnimeService } from './anime/anime.service';
 import { Component, OnInit } from '@angular/core';
@@ -19,12 +20,17 @@ export class AppComponent {
   "esporte","fantasia","filme","harem","historico","jogo","josei","magia","mecha","militar","misterio","ova",
   "poderes","psicologico","romance","samurai","sci-fi","seinen","shoujo","shounen","slice_of_life","sobrenatural","suspense","terror","yaoi","yuri"]
 
-  constructor(private animeService: AnimeService,private router: Router){
+  showMenu: boolean = false
+
+
+  constructor(private animeService: AnimeService,private router: Router, private authService:AuthService){
     
   }
 
   ngOnInit(){
-    
+    this.authService.showMenu.subscribe(
+      show => this.showMenu = show
+    );
   }
 
   ngOnDestroy(){

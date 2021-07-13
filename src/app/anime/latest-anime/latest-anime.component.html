@@ -1,9 +1,11 @@
-<h1>Ultimos Episódios Lançados</h1>
-<div class="" *ngIf="latestAnimes$ | async; else loading">
-    <div class="d-flex flex-wrap justify-content-start align-items-stretch">
+
+<div class="d-flex flex-column justify-content-center align-items-center" *ngIf="latestAnimes$ | async; else loading">
+    <h1>Ultimos Episódios Lançados</h1><br>
+    <div class="d-flex flex-wrap justify-content-center">
+       
         <div *ngFor="let episode of latestAnimes$ | async">
 
-            <app-anime-card [title]="episode.title" [image]="'https://cdn.appanimeplus.tk/img/'+episode.category_image">
+            <app-anime-card [title]="episode.title" [image]="'https://cdn.appanimeplus.tk/img/'+episode.category_image" [latest]="true">
             </app-anime-card>
         </div>
     </div>

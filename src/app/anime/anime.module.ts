@@ -2,14 +2,16 @@ import { LatestAnimeComponent } from './latest-anime/latest-anime.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnimeCardComponent } from './anime-card/anime-card.component';
-import { CategoryAnimeComponent } from './category-anime/category-anime.component';
+import { ListAnimeComponent } from './list-anime/list-anime.component';
+import { FavoriteAnimeComponent } from './favorite-anime/favorite-anime.component';
 
 
 @NgModule({
   declarations: [
     AnimeCardComponent,
     LatestAnimeComponent,
-    CategoryAnimeComponent
+    ListAnimeComponent,
+    FavoriteAnimeComponent
   ],
   imports: [
     CommonModule

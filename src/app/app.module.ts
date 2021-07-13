@@ -1,3 +1,6 @@
+import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth.guards';
+import { LoginModule } from './login/login.module';
 import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,9 +21,13 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    AnimeModule
+    AnimeModule,
+    LoginModule
   ],
-  providers: [],
+  providers: [
+    AuthService, 
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

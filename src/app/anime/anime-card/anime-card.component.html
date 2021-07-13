@@ -1,6 +1,17 @@
 <div class="card">
-    <img [src]="image" class="card-img-top" alt="...">
-    <div class="card-body">
-      <p class="card-text">{{title}}</p>
+  <img [src]="image" class="card-img-top" alt="...">
+  <div class="card-body d-flex flex-row align-items-center justify-content-between" #cardBody>
+
+    <h1 class="card-text" #titleElement>{{title}}</h1>
+    <div *ngIf="!latest && autenticado">
+      <i *ngIf="favorite; else notFavorite" class="fas fa-star" (mouseover)="mouseOverOut($event.srcElement)"
+        (mouseout)="mouseOverOut($event.srcElement)" (click)="onClick($event.srcElement)"></i>
+
+      <ng-template #notFavorite>
+        <i class="far fa-star" (mouseover)="mouseOverOut($event.srcElement)"
+          (mouseout)="mouseOverOut($event.srcElement)" (click)="onClick($event.srcElement)"></i>
+      </ng-template>
     </div>
+
+  </div>
 </div>

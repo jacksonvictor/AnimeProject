@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoryAnimeComponent } from './category-anime.component';
+import { FavoriteAnimeComponent } from './favorite-anime.component';
 
-describe('CategoryAnimeComponent', () => {
-  let component: CategoryAnimeComponent;
-  let fixture: ComponentFixture<CategoryAnimeComponent>;
+describe('FavoriteAnimeComponent', () => {
+  let component: FavoriteAnimeComponent;
+  let fixture: ComponentFixture<FavoriteAnimeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryAnimeComponent ]
+      declarations: [ FavoriteAnimeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CategoryAnimeComponent);
+    fixture = TestBed.createComponent(FavoriteAnimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
