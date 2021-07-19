@@ -51,18 +51,4 @@ export class ListAnimeComponent implements OnInit {
     this.animePerCategory$ = this.animeService.getAnimeByCategory(category)
   }
 
-  favoriteOnOff(value: any){
-    console.log(value)
-    if(this.animeSearch$){
-      this.animeSearch$.forEach(array =>{
-        array.forEach(anime =>{
-          if(anime.category_name === value.title){
-            anime.favorite = value.action
-          }
-        })
-      })
-    }
-    
-  }
-
 }

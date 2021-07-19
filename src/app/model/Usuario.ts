@@ -1,4 +1,6 @@
 export class Usuario {
-    nome: string;
+    _id:string;
+    login: string;
     senha: string;
+    favoritos: number[]
 }

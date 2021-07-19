@@ -4,13 +4,8 @@
 
     <h1 class="card-text" #titleElement>{{title}}</h1>
     <div *ngIf="!latest && autenticado">
-      <i *ngIf="favorite; else notFavorite" class="fas fa-star" (mouseover)="mouseOverOut($event.srcElement)"
-        (mouseout)="mouseOverOut($event.srcElement)" (click)="onClick($event.srcElement)"></i>
-
-      <ng-template #notFavorite>
-        <i class="far fa-star" (mouseover)="mouseOverOut($event.srcElement)"
-          (mouseout)="mouseOverOut($event.srcElement)" (click)="onClick($event.srcElement)"></i>
-      </ng-template>
+      <i class="fa-star" [class.fas]="favoritoClass" [class.far]="!favoritoClass"
+        (click)="onClick($event.srcElement)"></i>
     </div>
 
   </div>

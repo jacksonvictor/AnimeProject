@@ -5,8 +5,7 @@
         <div class="d-flex flex-wrap justify-content-center">
             <div *ngFor="let anime of animePerCategory$ | async">
                 <app-anime-card [title]="anime.category_name"
-                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image"
-                    (favoriteOnOff)="favoriteOnOff($event)"></app-anime-card>
+                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image" [id]="anime.id"></app-anime-card>
             </div>
         </div>
     </div>
@@ -20,7 +19,7 @@
         <div class="d-flex flex-wrap justify-content-center">
             <div *ngFor="let anime of animeSearch$ | async">
                 <app-anime-card [title]="anime.category_name"
-                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image" [favorite]="anime.favorite" (favoriteOnOff)="favoriteOnOff($event)">
+                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image" [id]="anime.id">
                 </app-anime-card>
             </div>
         </div>
@@ -29,9 +28,15 @@
 
 
 <ng-template #naoEncontrado>
-    <h2>Anime Não Encontrado.</h2>
+    <div class="container">
+        <h2>Anime Não Encontrado.</h2>
+    </div>
+    
 </ng-template>
 
 <ng-template #loading>
-    <h2>Carregando...</h2>
+    <div class="container">
+        <h2>Carregando...</h2>
+    </div>
+    
 </ng-template>

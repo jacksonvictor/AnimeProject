@@ -1,6 +1,7 @@
 import { Usuario } from './../model/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
+import { Subscription } from 'rxjs';
 
 
 
@@ -12,6 +13,7 @@ import { AuthService } from './auth.service';
 export class LoginComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
+  usuarioCriado: boolean = false
 
   constructor(private authService: AuthService) { }
 
@@ -19,9 +21,19 @@ export class LoginComponent implements OnInit {
 
   }
 
-  fazerLogin(){
-    console.log(this.usuario.senha);
-    this.authService.fazerLogin(this.usuario);
+  fazerLogin() {
+    this.authService.login(this.usuario);
+  }
+
+  novoUsuario() {
+    this.usuarioCriado = false
+    this.authService.novoUsuario(this.usuario).subscribe(
+      next => {
+        this.usuarioCriado = true
+      },
+      error => {
+        this.usuarioCriado = false
+      })
   }
 
 }

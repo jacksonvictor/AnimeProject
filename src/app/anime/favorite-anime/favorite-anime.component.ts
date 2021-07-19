@@ -1,4 +1,8 @@
+import { AnimeService } from './../anime.service';
+import { AuthService } from './../../login/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { Anime } from 'src/app/model/Anime';
 
 @Component({
   selector: 'app-favorite-anime',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoriteAnimeComponent implements OnInit {
 
-  constructor() { }
+  favorites$: Observable<Anime[]>
+  favorites: Anime[]
+
+  constructor(private animeService: AnimeService) { }
 
   ngOnInit(): void {
+    this.favorites = this.animeService.getFavorites()
   }
 
+  favorite(event: any){
+    this.searchFavoriteById(event)
+  }
+
+ searchFavoriteById(id: string){
+   for(let anime of this.favorites){
+     if(anime.id === id){
+      this.favorites.splice(this.favorites.indexOf(anime), 1)
+     }
+   }
+ }
 }

@@ -1,6 +1,12 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
-    <h1>Favoritos</h1> 
-    <div class="d-flex flex-wrap justify-content-center">
-       
+    <h1>Favoritos</h1>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="d-flex flex-wrap justify-content-center">
+            <div *ngFor="let anime of favorites">
+                <app-anime-card [title]="anime.category_name" (favoriteChange)="favorite($event)"
+                    [image]="'https://cdn.appanimeplus.tk/img/'+anime.category_image" [id]="anime.id">
+                </app-anime-card>
+            </div>
+        </div>
     </div>
 </div>

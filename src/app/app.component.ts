@@ -37,10 +37,12 @@ export class AppComponent {
   }
 
   searchAnime(anime:string){
-    console.log(anime)
     this.router.navigate(['/lista'], {queryParams: {'search': anime}});
   }
 
+  logout(){
+    this.authService.logout()
+  }
   
 
 }
